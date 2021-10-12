@@ -8,20 +8,20 @@ import { Character, CharacterDoc } from './schemas/character.schema';
 @Injectable()
 export class CharacterService {
   constructor(
-    @InjectModel(Character.name) private character: Model<CharacterDoc>,
+    @InjectModel(Character.name) private characterModel: Model<CharacterDoc>,
   ) {}
 
   async create(createCharacterDto: CreateCharacterDto): Promise<Character> {
-    const newChar = new this.character(createCharacterDto);
+    const newChar = new this.characterModel(createCharacterDto);
     return newChar.save();
   }
 
   async findAll() {
-    return this.character.find({});
+    return this.characterModel.find({});
   }
 
   async findAllForUser(userId: string) {
-    return this.character.find({ userId });
+    return this.characterModel.find({ userId });
   }
 
   findOne(id: number) {

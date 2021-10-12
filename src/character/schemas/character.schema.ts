@@ -13,6 +13,9 @@ export class Character {
   @Prop({ required: true })
   name: string;
 
+  @Prop({ default: 1 })
+  level: number;
+
   @Prop(
     raw({
       str: { type: Number, default: 10 },
