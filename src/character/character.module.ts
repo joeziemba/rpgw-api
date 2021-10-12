@@ -5,11 +5,7 @@ import { CharacterController } from './character.controller';
 import { Character, CharacterSchema } from './schemas/character.schema';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([
-      { name: Character.name, schema: CharacterSchema },
-    ]),
-  ],
+  imports: [MongooseModule.forFeature([{ name: Character.name, schema: CharacterSchema }])],
   controllers: [CharacterController],
   providers: [CharacterService],
 })

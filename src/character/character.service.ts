@@ -7,9 +7,7 @@ import { Character, CharacterDoc } from './schemas/character.schema';
 
 @Injectable()
 export class CharacterService {
-  constructor(
-    @InjectModel(Character.name) private characterModel: Model<CharacterDoc>,
-  ) {}
+  constructor(@InjectModel(Character.name) private characterModel: Model<CharacterDoc>) {}
 
   async create(createCharacterDto: CreateCharacterDto): Promise<Character> {
     const newChar = new this.characterModel(createCharacterDto);

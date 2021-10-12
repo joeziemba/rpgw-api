@@ -6,6 +6,9 @@ import {
   Patch,
   Param,
   Delete,
+  HttpCode,
+  HttpStatus,
+  Res,
 } from '@nestjs/common';
 import { ClassService } from './class.service';
 import { CreateClassDto } from './dto/create-class.dto';
@@ -25,10 +28,17 @@ export class ClassController {
     return this.classService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.classService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string, @Res({ passthrough: true }) res: Response) {
+  //   const requestedClass = this.classService.findOne(+id);
+  //   if (!requestedClass) {
+  //     res.status(HttpStatus.NO_CONTENT);
+  //     res.statusText('No class with that ID found');
+  //     return {};
+  //   }
+
+  //   return requestedClass;
+  // }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateClassDto: UpdateClassDto) {
@@ -36,6 +46,7 @@ export class ClassController {
   }
 
   @Delete(':id')
+  @HttpCode(501)
   remove(@Param('id') id: string) {
     return this.classService.remove(+id);
   }
