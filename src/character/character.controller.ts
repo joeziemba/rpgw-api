@@ -24,12 +24,12 @@ export class CharacterController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    return this.characterService.findOne(+id);
+    return this.characterService.findOne(id);
   }
 
-  @Patch(':id')
-  async update(@Param('id') id: string, @Body() updateCharacterDto: UpdateCharacterDto) {
-    return this.characterService.update(+id, updateCharacterDto);
+  @Patch('assign-class')
+  async assignClass(@Body() updateCharacterDto: UpdateCharacterDto) {
+    return await this.characterService.assignClass(updateCharacterDto);
   }
 
   @Delete(':id')

@@ -1,5 +1,6 @@
 import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { IBoost } from 'src/common/models/Boost.model';
 
 export type CharacterDoc = Character & Document;
 
@@ -32,9 +33,13 @@ export class Character {
     raw({
       name: { type: String },
       id: { type: String },
+      hp: { type: Number },
     }),
   )
   class: Record<string, any>;
+
+  @Prop({ default: [] })
+  boosts: IBoost[];
 }
 
 export const CharacterSchema = SchemaFactory.createForClass(Character);
