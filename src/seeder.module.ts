@@ -3,7 +3,6 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CharacterModule } from './character/character.module';
 import { ClassModule } from './class/class.module';
 
 @Module({
@@ -14,10 +13,9 @@ import { ClassModule } from './class/class.module';
     MongooseModule.forRoot(
       `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@rpgw-dev.4dcel.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     ),
-    CharacterModule,
     ClassModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class SeederModule {}
