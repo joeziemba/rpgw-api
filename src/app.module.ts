@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CharacterModule } from './character/character.module';
-import { ClassModule } from './class/class.module';
+import { CharacterModule } from './pathfinder/character/character.module';
+import { ClassModule } from './pathfinder/class/class.module';
 
 @Module({
   imports: [
@@ -17,7 +15,7 @@ import { ClassModule } from './class/class.module';
     CharacterModule,
     ClassModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

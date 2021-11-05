@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Class, ClassDocument } from 'src/class/schemas/class.schema';
+import { Class, ClassDocument } from 'src/pathfinder/class/schemas/class.schema';
 import { CreateCharacterDto } from './dto/create-character.dto';
 import { UpdateCharacterDto } from './dto/update-character.dto';
 import { Character, CharacterDoc } from './schemas/character.schema';

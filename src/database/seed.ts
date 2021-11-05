@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { ClassSeeder } from './class/class.seeder';
+import { ClassSeeder } from '../pathfinder/class/class.seeder';
 import { SeederModule } from './seeder.module';
 
 async function bootstrap() {
@@ -8,7 +8,6 @@ async function bootstrap() {
       const seeder = appContext.get(ClassSeeder);
       await seeder
         .seed()
-        .then(() => {})
         .catch((error) => {
           throw error;
         })

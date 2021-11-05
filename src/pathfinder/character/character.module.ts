@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { CharacterService } from './character.service';
 import { CharacterController } from './character.controller';
 import { Character, CharacterSchema } from './schemas/character.schema';
-import { Class, ClassSchema } from 'src/class/schemas/class.schema';
+import { Class, ClassSchema } from 'src/pathfinder/class/schemas/class.schema';
 
 @Module({
   imports: [
